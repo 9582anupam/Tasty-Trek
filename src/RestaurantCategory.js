@@ -1,14 +1,20 @@
 import ItemList from "./ItemList";
+import { useState } from "react";
 
 const RestaurantCategory = ({ data }) => {
-    // console.log(data);
+
+    const [showItems, setShowItems] = useState(false);
+    const handleClick = () => {
+        console.log("clicked");
+        setShowItems(!showItems)
+    }
     return (
-        <div className="w-full">
+        <div className="menu w-full">
             <div className="h-4  bg-[#F2F2F3] mx-auto "></div>
 
-            <div className="w-full p-4 cursor-pointer " >
+            <div className="w-full p-2 cursor-pointer " >
                 {/* Header */}
-                <div className="w-full font-bold flex justify-between items-start ">
+                <div className="w-full font-bold flex justify-between items-start" onClick={handleClick}>
                     <span className="text-lg pb-4">
                         {data.title} ({data.itemCards.length})
                     </span>
@@ -18,7 +24,7 @@ const RestaurantCategory = ({ data }) => {
                 </div>
                 {/* Accordion Body */}
                 <div className="flex justify-center w-full">
-                    <ItemList items={data.itemCards} />
+                    {showItems && <ItemList items={data.itemCards} />}
                 </div>
             </div>
         </div>
