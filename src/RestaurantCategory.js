@@ -10,7 +10,7 @@ const RestaurantCategory = ({ data }) => {
                 {/* Header */}
                 <div className="w-full font-bold flex justify-between items-center">
                     <span className="text-lg pb-4">
-                        {data.title}({data.itemCards.length})
+                        {data.title} ({data.itemCards.length})
                     </span>
                     <div className="flex items-center">
                         <span>{"⏬"}</span>
