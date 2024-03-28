@@ -22,7 +22,6 @@ const RestaurantMenu = () => {
         <div className="menu px-5 flex flex-col gap-6">
             <h1 className="text-center font-bold text-5xl pt-5">{name}</h1>
             <h3 className="text-center font-black text-xl">Cuisines: {cuisines.join(", ")}</h3>
-            <h3 className="text-center text-xl">{costForTwoMessage}</h3>
 
             <div className="w-6/12 flex flex-col items-center gap-10  mx-auto">
                 {categories.map( (category, index) => {

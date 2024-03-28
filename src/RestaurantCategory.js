@@ -6,9 +6,9 @@ const RestaurantCategory = ({ data }) => {
         <div className="w-full">
             <div className="h-4  bg-[#F2F2F3] mx-auto "></div>
 
-            <div className="w-full p-4 cursor-pointer">
+            <div className="w-full p-4 cursor-pointer " >
                 {/* Header */}
-                <div className="w-full font-bold flex justify-between items-center">
+                <div className="w-full font-bold flex justify-between items-start ">
                     <span className="text-lg pb-4">
                         {data.title} ({data.itemCards.length})
                     </span>
