@@ -1,12 +1,13 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const RestaurantCategory = ({ data }) => {
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
 
-    const [showItems, setShowItems] = useState(false);
+    // const [currentItem, setCurrentItem] = useState(false);
     const handleClick = () => {
         console.log("clicked");
-        setShowItems(!showItems)
+        // setCurrentItem(!currentItem);
+        setShowIndex();
     }
     return (
         <div className="menu w-full">
