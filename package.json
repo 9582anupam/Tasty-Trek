@@ -2,9 +2,11 @@
   "name": "tasty-trek",
   "version": "1.0.0",
   "description": "A Food delivery website using REACT.JS",
-  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
