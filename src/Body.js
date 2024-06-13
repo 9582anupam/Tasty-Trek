@@ -40,40 +40,46 @@ const Body = () => {
         <Shimmer />
     ) : (
 
-        <div className="body">
-            <div>
+        <div className="body pb-16">
+            <div className="text-center my-4">
+            <div className="flex justify-center items-center">
                 <input
-                className="search-input"
+                className="search-input transition-shadow duration-300 ease-in-out w-full max-w-md px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
                 type="text"
                 placeholder="Search Restaurants"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 />
-                <button onClick={() => {
-                const filteredRestaurant = listOfRestaurant.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                );
-                setFilteredRestaurant(filteredRestaurant);
-                }}>
-                    Search
-                </button>
-
-            </div>
-            <div className="filter">
                 <button
-                className="filter-btn"
+                className="bg-blue-500 text-white px-4 py-2 rounded-r-lg transition-colors duration-300 ease-in-out hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 onClick={() => {
-                    const filteredList = listOfRestaurant.filter(
-                    (res) => res.info.avgRating > 4.3
+                    const filteredRestaurant = listOfRestaurant.filter((res) =>
+                    res.info.name.toLowerCase().includes(searchText.toLowerCase())
                     );
-                    setFilteredRestaurant(filteredList);
+                    setFilteredRestaurant(filteredRestaurant);
                 }}
                 >
-                Top Rated Restaurants
+                Search
                 </button>
             </div>
-            <div className="res-container-parent mx-auto w-10/12 mt-10">
-                <div className="res-container flex flex-wrap gap-40 ">
+            </div>
+
+            <div className="filter my-4 text-center">
+            <button
+                className="filter-btn bg-green-500 text-white px-6 py-2 rounded-lg transition duration-300 ease-in-out hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-md"
+                onClick={() => {
+                const filteredList = listOfRestaurant.filter(
+                    (res) => res.info.avgRating > 4.3
+                );
+                setFilteredRestaurant(filteredList);
+                }}
+            >
+                Top Rated Restaurants({">"}4.3{"⭐"})
+            </button>
+            </div>
+
+            <div className="res-container-parent mx-auto  mt-10 ">
+                <div className="res-container flex flex-wrap gap-40 justify-center">
                 {filteredRestaurant.map((restaurant) => (
                     <Link to={"/restaurant/"+ restaurant.info.id}
                         key={restaurant.info.id}>
