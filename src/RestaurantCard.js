@@ -1,3 +1,5 @@
+import StarSvg from "../utils/StarSvg";
+
 const RestaurantCard = (props) => {
     const { resData } = props;
     const { name, cuisines, avgRating, costForTwo, aggregatedDiscountInfo } =
@@ -5,7 +7,7 @@ const RestaurantCard = (props) => {
     const deliveryTime = resData.info.sla.deliveryTime;
 
     return (
-        <div className="restaurant-card w-[250px] h-[350px] mx-auto rounded-lg bg-white hover:bg-gray-100 hover:scale-105 transform duration-200 shadow-md flex flex-col justify-between">
+        <div className="restaurant-card w-[250px] h-[300px] mx-auto rounded-lg bg-white hover:bg-gray-100 hover:scale-105 transform duration-200 shadow-md flex flex-col justify-between">
             <div className="relative">
                 <img
                     src={
@@ -22,16 +24,19 @@ const RestaurantCard = (props) => {
                     </div>
                 )}
             </div>
-            <div className="p-4 flex-grow">
-                <p className="text-center font-bold text-md mb-1">{name}</p>
-                <p className="text-center text-gray-700 mb-1 line-clamp-2">
+            <div className="px-4 py-1 flex-grow ">
+                <p className="text-center font-bold text-md line-clamp-1">{name}</p>
+                <p className=" text-gray-700 line-clamp-2">
                     Cuisine: {cuisines.join(", ")}
                 </p>
-                <p className="text-center text-yellow-500 font-semibold mb-1">
+                <span className="flex flex-row gap-1 items-center">
+                    <StarSvg/>
+                    <p className="text-yellow-500 font-semibold">
                     Rating: {avgRating}
-                </p>
-                <p className="text-center text-gray-700 mb-1">{costForTwo}</p>
-                <p className="text-center text-gray-700">
+                    </p>
+                </span>
+                <p className="text-gray-700">{costForTwo}</p>
+                <p className="text-gray-700">
                     Delivery Time: {deliveryTime} mins
                 </p>
             </div>
