@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
     const deliveryTime = resData.info.sla.deliveryTime;
 
     return (
-        <div className="restaurant-card w-[250px] h-[300px] mx-auto rounded-lg bg-white hover:bg-gray-100 hover:scale-105 transform duration-200 shadow-md flex flex-col justify-between">
+        <div className="restaurant-card w-[250px] h-[260px] mx-auto rounded-lg bg-white hover:bg-gray-100 hover:scale-105 transform duration-200 shadow-md flex flex-col justify-between">
             <div className="relative">
                 <img
                     src={
@@ -24,7 +24,7 @@ const RestaurantCard = (props) => {
                     </div>
                 )}
             </div>
-            <div className="px-4 py-1 flex-grow ">
+            <div className="px-4  flex flex-col flex-grow ">
                 <p className="text-center font-bold text-md line-clamp-1">{name}</p>
                 <p className=" text-gray-700 line-clamp-2">
                     Cuisine: {cuisines.join(", ")}
@@ -32,13 +32,10 @@ const RestaurantCard = (props) => {
                 <span className="flex flex-row gap-1 items-center">
                     <StarSvg/>
                     <p className="text-yellow-500 font-semibold">
-                    Rating: {avgRating}
+                    {avgRating} • {deliveryTime} mins
                     </p>
                 </span>
                 <p className="text-gray-700">{costForTwo}</p>
-                <p className="text-gray-700">
-                    Delivery Time: {deliveryTime} mins
-                </p>
             </div>
         </div>
     );
